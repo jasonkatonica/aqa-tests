@@ -156,5 +156,6 @@
 	</target>
 
 	<target name="build" >
+		<antcall target="clean" inheritall="true" />
 	</target>
 </project>
