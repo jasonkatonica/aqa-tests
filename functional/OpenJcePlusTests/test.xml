@@ -45,8 +45,6 @@
 	<target name="test">
 		<echo message="Command: ${TEST_JAVA} -cp junit4.jar:hamcrest-core.jar:bcprov-jdk18on.jar:openjceplus-tests.jar:junit-vintage-engine.jar:junit-platform-suite.jar:junit-jupiter-api.jar:junit-jupiter-engine.jar:junit-jupiter-params.jar:junit-platform-suite-api.jar --add-exports=java.base/sun.security.util=ALL-UNNAMED --add-exports=openjceplus/com.ibm.crypto.plus.provider.ock=ALL-UNNAMED ibm.jceplus.junit.TestMemStressAll" />
 		<junitlauncher haltonfailure="false" printSummary="true" >
-			<jvmarg value="--add-exports=java.base/sun.security.util=ALL-UNNAMED"/>
-			<jvmarg value="--add-exports=openjceplus/com.ibm.crypto.plus.provider.ock=ALL-UNNAMED"/>
 			<classpath>
 				<pathelement location="junit4.jar" />
 				<pathelement location="hamcrest-core.jar" />
@@ -60,6 +58,10 @@
 				<pathelement location="junit-platform-suite-api.jar" />
 			</classpath>
 			<testclasses outputdir="junitreports">
+				<fork>
+					<jvmarg value="--add-exports=java.base/sun.security.util=ALL-UNNAMED"/>
+					<jvmarg value="--add-exports=openjceplus/com.ibm.crypto.plus.provider.ock=ALL-UNNAMED"/>
+				</fork>
 				<test name="ibm.jceplus.junit.TestMemStressAll" outputDir="junitreports"  failureproperty="test.failed.1"/>
 				<test name="ibm.jceplus.junit.TestMultithread" outputDir="junitreports"  failureproperty="test.failed.2"/>
 				<test name="ibm.jceplus.junit.TestMultithreadFIPS" outputDir="junitreports"  failureproperty="test.failed.3"/>
