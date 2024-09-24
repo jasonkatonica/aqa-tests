@@ -42,16 +42,16 @@
 			<property name="openjceplusGitRepo" value="${env.OPENJCEPLUS_GIT_REPO}"/>
 		</then>
 		<else>
-			<property name="openjceplusGitRepo" value="https://github.com/ibmruntimes/OpenJCEPlus.git"/>
+			<property name="openjceplusGitRepo" value="https://github.com/jasonkatonica/OpenJCEPlus.git"/>
 		</else>
 	</if>
 	<if>
 		<isset property="env.OPENJCEPLUS_GIT_BRANCH"/>
 		<then>
-			<property name="openjceplusGitBranch" value="${env.OPENJCEPLUS_GIT_BRANCH}"/>
+			<property name="openjceplusGitBranch" value="katonica/issue/remove22profilefromjava23"/>
 		</then>
 		<else>
-			<property name="openjceplusGitBranch" value="semeru-java${JDK_VERSION}"/>
+			<property name="openjceplusGitBranch" value="katonica/issue/remove22profilefromjava23"/>
 		</else>
 	</if>
 
