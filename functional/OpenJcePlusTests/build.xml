@@ -48,10 +48,10 @@
 	<if>
 		<isset property="env.OPENJCEPLUS_GIT_BRANCH"/>
 		<then>
-			<property name="openjceplusGitBranch" value="katonica/issue/remove22profilefromjava23"/>
+			<property name="openjceplusGitBranch" value="katonica/issue400/failingtestmessages"/>
 		</then>
 		<else>
-			<property name="openjceplusGitBranch" value="katonica/issue/remove22profilefromjava23"/>
+			<property name="openjceplusGitBranch" value="katonica/issue400/failingtestmessages"/>
 		</else>
 	</if>
 
