@@ -14,7 +14,7 @@
 -->
 <playlist xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../TKG/resources/playlist.xsd">
 	<test>
-		<testCaseName>openJcePlusTests</testCaseName>
+		<testCaseName>openJcePlusFIPSTests</testCaseName>
 		<disables>
 			<disable>
 				<comment>only applicable for Semeru atm</comment>
@@ -37,15 +37,12 @@
 		-Dtestenvironment=standalonebundled \
 		clean \
 		test-compile \
-		surefire:test; \
+		test \
+		-Dtest='ibm.jceplus.junit.openjceplusfips.TestAll,ibm.jceplus.junit.TestMultithreadFIPS,ibm.jceplus.junit.openjceplusfips.integration.TestAll'; \
 		$(TEST_STATUS); \
 		mkdir junitreports; \
 		cp -r ${REPORTDIR}/target/surefire-reports/* junitreports
 		</command>
-		<features>
-			<feature>FIPS140_3_OpenJCEPlusFIPS:required</feature>
-			<feature>FIPS140_3_OpenJCEPlusFIPS.FIPS140-3:required</feature>
-		</features>
 		<levels>
 			<level>extended</level>
 		</levels>
@@ -55,6 +52,54 @@
 		<versions>
 			<version>11+</version>
 		</versions>
+		<features>
+			<feature>FIPS140_3_OpenJCEPlusFIPS:required</feature>
+			<feature>FIPS140_3_OpenJCEPlusFIPS.FIPS140-3:required</feature>
+		</features>
+		<impls>
+			<impl>openj9</impl>
+		</impls>
+	</test>
+	<test>
+		<testCaseName>openJcePlusTests</testCaseName>
+		<disables>
+			<disable>
+				<comment>only applicable for Semeru atm</comment>
+				<vendor>eclipse</vendor>
+			</disable>
+		</disables>
+		<command>cp -r ${TEST_RESROOT}/* ${REPORTDIR}/. ; \
+		cd ${REPORTDIR}; \
+		chmod 755 *.sh; \
+		mkdir apache-maven; \
+		tar xvzf apache-maven-bin.tar.gz -C apache-maven --strip-components 1; \
+		ls -al; \
+		${REPORTDIR}/apache-maven/bin/mvn -version; \
+		${REPORTDIR}/apache-maven/bin/mvn -f ${REPORTDIR}/pom.xml \
+		-Denforcer.skip \
+		-Dtestenvironment=standalonebundled \
+		clean \
+		test-compile \
+		test \
+		-Dtest='ibm.jceplus.junit.openjceplus.TestAll,ibm.jceplus.junit.TestMemStressAll,ibm.jceplus.junit.TestMultithread,ibm.jceplus.junit.openjceplus.integration.TestAll'; \
+		$(TEST_STATUS); \
+		mkdir junitreports; \
+		cp -r ${REPORTDIR}/target/surefire-reports/* junitreports
+		</command>
+		<levels>
+			<level>extended</level>
+		</levels>
+		<groups>
+			<group>functional</group>
+		</groups>
+		<versions>
+			<version>11+</version>
+		</versions>
+		<features>
+			<feature>FIPS140_2:nonapplicable</feature>
+			<feature>FIPS140_3_OpenJCEPlusFIPS:nonapplicable</feature>
+			<feature>FIPS140_3_OpenJCEPlusFIPS.FIPS140-3:nonapplicable</feature>
+		</features>
 		<impls>
 			<impl>openj9</impl>
 		</impls>
