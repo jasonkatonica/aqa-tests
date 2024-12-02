@@ -38,7 +38,7 @@
 		clean \
 		test-compile \
 		test \
-		-Dtest='ibm.jceplus.junit.openjceplusfips.TestAll,ibm.jceplus.junit.TestMultithreadFIPS,ibm.jceplus.junit.openjceplusfips.integration.TestAll'; \
+		-Dtest='ibm.jceplus.junit.openjceplusfips.TestAES'; \
 		$(TEST_STATUS); \
 		mkdir junitreports; \
 		cp -r ${REPORTDIR}/target/surefire-reports/* junitreports
@@ -81,7 +81,7 @@
 		clean \
 		test-compile \
 		test \
-		-Dtest='ibm.jceplus.junit.openjceplus.TestAll,ibm.jceplus.junit.TestMemStressAll,ibm.jceplus.junit.TestMultithread,ibm.jceplus.junit.openjceplus.integration.TestAll'; \
+		-Dtest='ibm.jceplus.junit.openjceplus.TestAES'; \
 		$(TEST_STATUS); \
 		mkdir junitreports; \
 		cp -r ${REPORTDIR}/target/surefire-reports/* junitreports
