@@ -53,6 +53,6 @@ if [ $USE_TESTENV_PROPERTIES = true ]; then
     echo "JDK_REPO=${JDK_REPO}"
     echo "JDK_BRANCH=${JDK_BRANCH}"
     echo "OPENJCEPLUS_GIT_REPO=${OPENJCEPLUS_GIT_REPO}"
-    echo "OPENJCEPLUS_GIT_BRANCH=${OPENJCEPLUS_GIT_BRANCH}"
+    echo "OPENJCEPLUS_GIT_BRANCH=katonica/issue/removesomeexports21"
 
 fi
